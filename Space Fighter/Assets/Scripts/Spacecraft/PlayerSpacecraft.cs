@@ -2,82 +2,83 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpacecraft : Spacecraft
+public class PlayerSpacecraft : FriendlySpacecraft
 {
-    [HideInInspector] public static PlayerSpacecraft instance;
-
-    private Vector3 mouseRelative;
-    public Vector3 MouseRelative 
-    {
-        get { return mouseRelative; } 
-    }
-
-    private Vector3 screenCenter;
-
-    public float Velocity 
-    {
-        get { return velocity; }
-    }
+    [HideInInspector] public static PlayerSpacecraft Instance;
 
     [Header("Handling Variables")]
-    [SerializeField] private float pitchSensitivity;
-    [SerializeField] private float yawSensitivity;
-    [SerializeField] private float pitchYawScale;
-    [SerializeField] private float deadZone;
-    [SerializeField] private float controlZone;
-
+    [SerializeField] private float aimSensitivity;
     [SerializeField] private bool pitchInverted;
+
+    public float Speed
+    {
+        get { return currentSpeed; }
+    }
+
+    public float Throttle
+    {
+        get { return throttle; }
+    }
+
+    public GameObject Target
+    {
+        get
+        {
+            return target;
+        }
+    }
+
+    public LaserCannon LaserCannon
+    {
+        get { return laserCannon; }
+    }
+
+    public MissileLauncher MissileLauncher
+    {
+        get { return missileLauncher; }
+    }
 
     private void Awake()
     {
         // Create Singleton instance
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
-    }
-
-    void Start()
-    {
-        // Find screen size and set center
-        screenCenter = new Vector3(Screen.width / 2.0f, Screen.height / 2.0f, 0.0f);
     }
 
     void Update()
     {
-        UpdateInputs();     
+        Cursor.lockState = CursorLockMode.Locked;
 
+        UpdateTarget();
+        UpdateMuzzlePointing();
+
+        UpdateInputs();     
         Rotate();
         Move();
     }
 
-    // Gets inputs from player and updates the velocity and rotation step on spacecraft class
+    // Gets inputs from player, updates the velocity and rotation step on spacecraft class and fires weapons
     private void UpdateInputs()
     {
-        mouseRelative = ApplyZones(Input.mousePosition - screenCenter);
-
-        Vector3 rotationStep = new Vector3(mouseRelative.y * (pitchInverted ? 1 : -1), mouseRelative.x, -Input.GetAxis("Horizontal"));
+        Vector3 rotationStep = new Vector3(Input.GetAxis("Mouse Y") * aimSensitivity * (pitchInverted ? 1 : -1), Input.GetAxis("Mouse X") * aimSensitivity, -Input.GetAxis("Horizontal"));
         UpdateRotation(rotationStep);
 
         UpdateVelocity(Input.GetAxis("Vertical"));
-    }
 
-    // Clears position to zero if it is within dead zone, otherwise returns direction with corrected scale
-    private Vector3 ApplyZones(Vector3 pixelPosition)
-    {
-        float distanceToCenter = pixelPosition.magnitude;
-
-        if (distanceToCenter > deadZone)
+        if (Input.GetMouseButton(0))
         {
-            float scale = Mathf.Clamp((distanceToCenter - deadZone) / controlZone, 0.0f, 1.0f);
-
-            return pixelPosition.normalized * scale;
+            ShootLaserCannon();
         }
 
-        return Vector3.zero;
+        if (Input.GetMouseButton(1))
+        {
+            ShootMissileLauncher();
+        }
     }
 }
