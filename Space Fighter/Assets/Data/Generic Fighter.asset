@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2332a90db20b94380ac79e4755319e, type: 3}
   m_Name: Generic Fighter
   m_EditorClassIdentifier: 
-  maxTargetingAngle: 30
+  maxTargetingAngle: 50
   maxTargetRange: 100
   acceleration: 0.005
   maxSpeed: 10

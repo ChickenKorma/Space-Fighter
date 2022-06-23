@@ -28,6 +28,16 @@ public class PlayerSpacecraft : FriendlySpacecraft
         }
     }
 
+    public GameObject ProxyTarget
+    {
+        get { return proxyTarget; }
+    }
+
+    public Weapon CurrentWeapon
+    {
+        get { return availableWeapons[currentWeapon]; }
+    }
+
     public LaserCannon LaserCannon
     {
         get { return laserCannon; }
@@ -55,7 +65,7 @@ public class PlayerSpacecraft : FriendlySpacecraft
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        UpdateTarget();
+        UpdateTargets();
         UpdateMuzzlePointing();
 
         UpdateInputs();     
@@ -66,19 +76,32 @@ public class PlayerSpacecraft : FriendlySpacecraft
     // Gets inputs from player, updates the velocity and rotation step on spacecraft class and fires weapons
     private void UpdateInputs()
     {
-        Vector3 rotationStep = new Vector3(Input.GetAxis("Mouse Y") * aimSensitivity * (pitchInverted ? 1 : -1), Input.GetAxis("Mouse X") * aimSensitivity, -Input.GetAxis("Horizontal"));
-        UpdateRotation(rotationStep);
-
-        UpdateVelocity(Input.GetAxis("Vertical"));
-
         if (Input.GetMouseButton(0))
         {
-            ShootLaserCannon();
+            Shoot();
         }
 
         if (Input.GetMouseButton(1))
         {
-            ShootMissileLauncher();
+            LockTarget();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectWeapon(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectWeapon(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SelectWeapon(2);
+        }
+
+        Vector3 rotationStep = new Vector3(Input.GetAxis("Mouse Y") * aimSensitivity * (pitchInverted ? 1 : -1), Input.GetAxis("Mouse X") * aimSensitivity, -Input.GetAxis("Horizontal"));
+        UpdateRotation(rotationStep);
+
+        UpdateVelocity(Input.GetAxis("Vertical"));      
     }
 }

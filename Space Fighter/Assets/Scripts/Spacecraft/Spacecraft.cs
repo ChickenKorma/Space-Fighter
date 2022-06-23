@@ -15,9 +15,19 @@ public class Spacecraft : MonoBehaviour
 
     private Vector3 rotationStep;
 
-    [SerializeField] protected GameObject target;
+    protected GameObject target;
+    protected GameObject proxyTarget;
 
     private List<Transform> muzzles = new List<Transform>();
+
+    public enum Weapon
+    {
+        laserCannon,
+        missileLauncher
+    }
+
+    protected List<Weapon> availableWeapons = new List<Weapon>();
+    protected int currentWeapon;
 
     public Vector3 Velocity
     {
@@ -35,6 +45,23 @@ public class Spacecraft : MonoBehaviour
         }
 
         target = null;
+
+        CheckWeapons();
+    }
+
+    // Builds list of available weapons from attached scripts
+    // Messy code but this helps speed up creation of new spacecraft
+    private void CheckWeapons()
+    {
+        if(laserCannon != null)
+        {
+            availableWeapons.Add(Weapon.laserCannon);
+        }
+
+        if(missileLauncher != null)
+        {
+            availableWeapons.Add(Weapon.missileLauncher);
+        }
     }
 
     // Updates the velocity based on an input thrust scale
@@ -98,21 +125,33 @@ public class Spacecraft : MonoBehaviour
         }
     }
 
-    // Checks if spacecraft has laser cannon object and calls shoot
-    protected void ShootLaserCannon()
+    // Set current weapon index to input if possible
+    protected void SelectWeapon(int weaponNumber)
     {
-        if(laserCannon != null)
+        if(weaponNumber >= 0 && weaponNumber < availableWeapons.Count)
         {
-            laserCannon.Shoot();
-        }   
+            currentWeapon = weaponNumber;
+        }       
     }
 
-    // Checks if spacecraft has missile launcher object and calls shoot
-    protected void ShootMissileLauncher()
+    // Cycles the current weapon index up or down depending on the input
+    protected void CycleWeapon(int direction)
     {
-        if (missileLauncher != null)
+        currentWeapon = (currentWeapon + (direction > 0 ? 1 : -1)) % availableWeapons.Count;
+    }
+
+    // Checks the current selected weapon and calls shoot
+    protected void Shoot()
+    {
+        switch (availableWeapons[currentWeapon])
         {
-            missileLauncher.Shoot();
+            case Weapon.laserCannon:
+                laserCannon.Shoot();
+                break;
+
+            case Weapon.missileLauncher:
+                missileLauncher.Shoot();
+                break;
         }
     }
 
@@ -124,22 +163,30 @@ public class Spacecraft : MonoBehaviour
 
         foreach(GameObject obj in objects)
         {
-            Vector3 directionToObject = obj.transform.position - transform.position;
+            (bool isValid, float angle) = isTargetValid(obj);
 
-            if(directionToObject.magnitude <= data.MaxTargetRange)
+            if (isValid && (angle <= closestAngle))
             {
-                float angle = Mathf.Rad2Deg * Mathf.Acos(Vector3.Dot(transform.forward, directionToObject.normalized));
+                result = obj;
 
-                if (angle <= closestAngle && angle <= data.MaxTargetingAngle)
-                {
-                    result = obj;
-
-                    closestAngle = angle;
-                }
+                closestAngle = angle;
             }
         }
 
         return result;
+    }
+
+    // Checks if target is within valid range and angle, returns result and the calculated angle
+    protected (bool, float) isTargetValid(GameObject obj)
+    {
+        Vector3 directionToObject = obj.transform.position - transform.position;
+
+        bool distanceValid = Vector3.SqrMagnitude(directionToObject) <= Mathf.Pow(data.MaxTargetRange, 2);
+
+        float angle = Mathf.Rad2Deg * Mathf.Acos(Vector3.Dot(transform.forward, directionToObject.normalized));
+        bool angleValid = angle <= data.MaxTargetingAngle;
+
+        return ((distanceValid && angleValid), angle);
     }
 }
 
@@ -156,14 +203,31 @@ public class FriendlySpacecraft : Spacecraft
         GameManager.Instance.AddFriendly(gameObject);
     }
 
-    // Finds enemy nearest the forward direction
-    protected void UpdateTarget()
+    protected void UpdateTargets()
     {
-        if(Time.time > lastTargetUpdate + 0.1f)
+        if (Time.time > lastTargetUpdate + 0.1f)
         {
-            target = ObjectNearestForward(GameManager.Instance.Enemies);
+            proxyTarget = ObjectNearestForward(GameManager.Instance.Enemies);
+
+            if(target != null)
+            {
+                (bool isValid, float _) = isTargetValid(target);
+
+                if (!isValid)
+                {
+                    target = null;
+                }
+            }
 
             lastTargetUpdate = Time.time;
+        }
+    }
+
+    protected void LockTarget()
+    {
+        if(proxyTarget != null)
+        {
+            target = proxyTarget;
         }
     }
 

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     [Header("HUD")]
     [SerializeField] private Image targetReticle;
+    [SerializeField] private Image proxyTargetReticle;
     [SerializeField] private Text targetDistance;
     [SerializeField] private Image velocityVector;
 
@@ -20,6 +21,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text temperatureText;
     [SerializeField] private Slider temperatureSlider;
     [SerializeField] private Slider missileSlider;
+    [SerializeField] private Image weaponSelection;
+
+    [Header("Icons")]
+    [SerializeField] private Sprite laser;
+    [SerializeField] private Sprite missile;
 
     private float missileReloadTime;
 
@@ -66,6 +72,22 @@ public class UIManager : MonoBehaviour
             targetReticle.gameObject.SetActive(false);
         }
 
+        GameObject proxyTarget = PlayerSpacecraft.Instance.ProxyTarget;
+
+        if (proxyTarget != null && proxyTarget != target)
+        {
+            proxyTargetReticle.gameObject.SetActive(true);
+
+            Vector3 proxyTargetPosition = proxyTarget.transform.position;
+
+            Vector3 proxyTargetScreenPosition = cam.WorldToScreenPoint(proxyTargetPosition);
+            proxyTargetReticle.rectTransform.position = proxyTargetScreenPosition;
+        }
+        else
+        {
+            proxyTargetReticle.gameObject.SetActive(false);
+        }
+
         float speed = PlayerSpacecraft.Instance.Speed;
 
         if(speed >= 0)
@@ -90,5 +112,16 @@ public class UIManager : MonoBehaviour
         temperatureSlider.value = temperature;
 
         missileSlider.value = Mathf.Clamp((Time.time - PlayerSpacecraft.Instance.MissileLauncher.LastShot) / missileReloadTime, 0, 1);
+
+        switch (PlayerSpacecraft.Instance.CurrentWeapon)
+        {
+            case Spacecraft.Weapon.laserCannon:
+                weaponSelection.sprite = laser;
+                break;
+
+            case Spacecraft.Weapon.missileLauncher:
+                weaponSelection.sprite = missile;
+                break;
+        }
     }
 }

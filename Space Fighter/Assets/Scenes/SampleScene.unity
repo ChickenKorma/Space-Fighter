@@ -647,7 +647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &147574442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.43137255, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1138,6 +1138,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &263008753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263008754}
+  - component: {fileID: 263008756}
+  - component: {fileID: 263008755}
+  m_Layer: 5
+  m_Name: Proxy Target Reticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &263008754
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263008753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 888972146}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &263008755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263008753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.23196453, b: 0.5377358, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cf4bf698688cfa941b77edbf1914305a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &263008756
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263008753}
+  m_CullTransparentMesh: 1
 --- !u!1001 &271636289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1583,7 +1658,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &391430678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2436,7 +2510,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &543358598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2746,7 +2819,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &666535862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2872,7 +2944,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &667883923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3421,7 +3492,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &771472910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3746,7 +3816,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d2cd677d1e7864449803266a3bbfaa6d, type: 2}
   laserCannon: {fileID: 511095872}
   missileLauncher: {fileID: 1673542154}
-  target: {fileID: 0}
   aimSensitivity: 2
   pitchInverted: 0
 --- !u!54 &800924837
@@ -4332,6 +4401,7 @@ RectTransform:
   m_Children:
   - {fileID: 1351888793}
   - {fileID: 147574442}
+  - {fileID: 263008754}
   - {fileID: 1074332980}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -4536,7 +4606,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &934714306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4767,6 +4836,7 @@ RectTransform:
   - {fileID: 1587274527}
   - {fileID: 1466419297}
   - {fileID: 972764077}
+  - {fileID: 1019723734}
   m_Father: {fileID: 1404952801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 34.62, y: 0, z: 0}
@@ -5057,6 +5127,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d726dc178993ec1478f8d8b563426d3f, type: 3}
   m_PrefabInstance: {fileID: 1004603264}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1019723733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019723734}
+  - component: {fileID: 1019723736}
+  - component: {fileID: 1019723735}
+  m_Layer: 5
+  m_Name: Weapon Selection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1019723734
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019723733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971925728}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 69.72}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1019723735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019723733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: eb1abfa2bc70e9044a1701626f131328, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1019723736
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019723733}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1051242989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5153,7 +5298,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888972146}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5173,7 +5318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5459,7 +5604,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &1109890741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5947,7 +6091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09411766, g: 0.48235297, b: 0.9607844, a: 1}
+  m_Color: {r: 0, g: 0.43137255, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6302,7 +6446,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &1326590500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6627,7 +6770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7326,7 +7469,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &1468397770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8326,7 +8468,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 8fed0d76b753a5742a920ece9dea24b2, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &1692554810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9596,7 +9737,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
-  target: {fileID: 0}
 --- !u!65 &2016894481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10223,6 +10363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetReticle: {fileID: 147574443}
+  proxyTargetReticle: {fileID: 263008755}
   targetDistance: {fileID: 1213110261}
   velocityVector: {fileID: 1351888794}
   speedText: {fileID: 2120455003}
@@ -10230,6 +10371,9 @@ MonoBehaviour:
   temperatureText: {fileID: 1229298769}
   temperatureSlider: {fileID: 1587274528}
   missileSlider: {fileID: 972764078}
+  weaponSelection: {fileID: 1019723735}
+  laser: {fileID: 21300000, guid: eb1abfa2bc70e9044a1701626f131328, type: 3}
+  missile: {fileID: 21300000, guid: dcb1ddb7c04472040b10b7e165fde960, type: 3}
 --- !u!4 &2133560510
 Transform:
   m_ObjectHideFlags: 0
