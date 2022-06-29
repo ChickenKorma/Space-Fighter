@@ -27,7 +27,6 @@ public class SpacecraftData : ScriptableObject
             return maxTargetingAngle;
         }
     }
-
     public float MaxTargetRange
     {
         get
@@ -44,7 +43,6 @@ public class SpacecraftData : ScriptableObject
             return acceleration;
         }
     }
-
     public float MaxSpeed
     {
         get
@@ -52,7 +50,6 @@ public class SpacecraftData : ScriptableObject
             return maxSpeed;
         }
     }
-
     public float Mass
     {
         get
@@ -69,7 +66,6 @@ public class SpacecraftData : ScriptableObject
             return pitchSpeed;
         }
     }
-
     public float YawSpeed
     {
         get
@@ -77,7 +73,6 @@ public class SpacecraftData : ScriptableObject
             return yawSpeed;
         }
     }
-
     public float RollSpeed
     {
         get

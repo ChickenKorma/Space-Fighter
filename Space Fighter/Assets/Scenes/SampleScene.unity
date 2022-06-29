@@ -1621,7 +1621,6 @@ GameObject:
   - component: {fileID: 391430680}
   - component: {fileID: 391430679}
   - component: {fileID: 391430678}
-  - component: {fileID: 391430677}
   - component: {fileID: 391430676}
   m_Layer: 0
   m_Name: Enemy (3)
@@ -1643,21 +1642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &391430677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391430675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &391430678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1733,6 +1717,128 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1995494283}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &400884092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400884098}
+  - component: {fileID: 400884097}
+  - component: {fileID: 400884096}
+  - component: {fileID: 400884095}
+  - component: {fileID: 400884094}
+  - component: {fileID: 400884093}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &400884093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400884092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751a4b978847e6749b94efbd755540b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &400884094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400884092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731b313244ad06b4d937fe38483c3792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+--- !u!65 &400884095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400884092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &400884096
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400884092}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ea54c2d6ecf80274195e8aefd0387750, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &400884097
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400884092}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &400884098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400884092}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 20.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &411476467
 PrefabInstance:
@@ -2459,7 +2565,6 @@ GameObject:
   - component: {fileID: 543358600}
   - component: {fileID: 543358599}
   - component: {fileID: 543358598}
-  - component: {fileID: 543358597}
   - component: {fileID: 543358596}
   m_Layer: 0
   m_Name: Enemy (7)
@@ -2495,21 +2600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &543358597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543358594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &543358598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2782,7 +2872,6 @@ GameObject:
   - component: {fileID: 666535864}
   - component: {fileID: 666535863}
   - component: {fileID: 666535862}
-  - component: {fileID: 666535861}
   - component: {fileID: 666535860}
   m_Layer: 0
   m_Name: Enemy (2)
@@ -2804,21 +2893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &666535861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666535859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &666535862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2907,7 +2981,6 @@ GameObject:
   - component: {fileID: 667883925}
   - component: {fileID: 667883924}
   - component: {fileID: 667883923}
-  - component: {fileID: 667883922}
   - component: {fileID: 667883921}
   m_Layer: 0
   m_Name: Enemy (4)
@@ -2929,21 +3002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &667883922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667883920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &667883923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3441,7 +3499,6 @@ GameObject:
   - component: {fileID: 771472912}
   - component: {fileID: 771472911}
   - component: {fileID: 771472910}
-  - component: {fileID: 771472909}
   - component: {fileID: 771472908}
   m_Layer: 0
   m_Name: Enemy (5)
@@ -3477,21 +3534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &771472909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771472906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &771472910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3816,6 +3858,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d2cd677d1e7864449803266a3bbfaa6d, type: 2}
   laserCannon: {fileID: 511095872}
   missileLauncher: {fileID: 1673542154}
+  spacecraftTeam: 1
   aimSensitivity: 2
   pitchInverted: 0
 --- !u!54 &800924837
@@ -4555,7 +4598,6 @@ GameObject:
   - component: {fileID: 934714308}
   - component: {fileID: 934714307}
   - component: {fileID: 934714306}
-  - component: {fileID: 934714305}
   - component: {fileID: 934714304}
   m_Layer: 0
   m_Name: Enemy (6)
@@ -4591,21 +4633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &934714305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934714302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &934714306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5553,7 +5580,6 @@ GameObject:
   - component: {fileID: 1109890743}
   - component: {fileID: 1109890742}
   - component: {fileID: 1109890741}
-  - component: {fileID: 1109890740}
   - component: {fileID: 1109890739}
   m_Layer: 0
   m_Name: Enemy (9)
@@ -5589,21 +5615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &1109890740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109890737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &1109890741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6409,7 +6420,6 @@ GameObject:
   - component: {fileID: 1326590502}
   - component: {fileID: 1326590501}
   - component: {fileID: 1326590500}
-  - component: {fileID: 1326590499}
   - component: {fileID: 1326590498}
   m_Layer: 0
   m_Name: Enemy (1)
@@ -6431,21 +6441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &1326590499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326590497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &1326590500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7418,7 +7413,6 @@ GameObject:
   - component: {fileID: 1468397772}
   - component: {fileID: 1468397771}
   - component: {fileID: 1468397770}
-  - component: {fileID: 1468397769}
   - component: {fileID: 1468397768}
   m_Layer: 0
   m_Name: Enemy (8)
@@ -7454,21 +7448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
---- !u!114 &1468397769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468397766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &1468397770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8462,12 +8441,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1692554806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72df2041d4085264b913ddab23fa397b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7258b42d1588f2149977ab891d15591e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 8fed0d76b753a5742a920ece9dea24b2, type: 2}
+  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
   laserCannon: {fileID: 0}
   missileLauncher: {fileID: 0}
+  spacecraftTeam: 0
 --- !u!65 &1692554810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9713,7 +9693,6 @@ GameObject:
   - component: {fileID: 2016894483}
   - component: {fileID: 2016894482}
   - component: {fileID: 2016894481}
-  - component: {fileID: 2016894480}
   - component: {fileID: 2016894485}
   m_Layer: 0
   m_Name: Enemy
@@ -9722,21 +9701,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2016894480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016894479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882c6588a406fa345ad857627495091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7ee4c89ddafd0b94987dd33e2cd790ae, type: 2}
-  laserCannon: {fileID: 0}
-  missileLauncher: {fileID: 0}
 --- !u!65 &2016894481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9841,7 +9805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2027589342
 Transform:
   m_ObjectHideFlags: 0
@@ -10362,10 +10326,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f66ebd3ef107548a8f22787c48d13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUDCanvas: {fileID: 888972146}
   targetReticle: {fileID: 147574443}
   proxyTargetReticle: {fileID: 263008755}
   targetDistance: {fileID: 1213110261}
+  missileDetector: {fileID: 2729884375842219806, guid: f72587399034bff4886132e6e609fd7a, type: 3}
   velocityVector: {fileID: 1351888794}
+  velocity: {fileID: 21300000, guid: 4adba5f5f146a834fb1924ba18e9c306, type: 3}
+  antiVelocity: {fileID: 21300000, guid: 1cce473bf7b53a840bde3eada0d4d3c3, type: 3}
   speedText: {fileID: 2120455003}
   throttleSlider: {fileID: 848044305}
   temperatureText: {fileID: 1229298769}
@@ -10374,6 +10342,9 @@ MonoBehaviour:
   weaponSelection: {fileID: 1019723735}
   laser: {fileID: 21300000, guid: eb1abfa2bc70e9044a1701626f131328, type: 3}
   missile: {fileID: 21300000, guid: dcb1ddb7c04472040b10b7e165fde960, type: 3}
+  missileDetectionDistance: 100
+  minMissileDetectorSize: 10
+  maxMissileDetectorSize: 75
 --- !u!4 &2133560510
 Transform:
   m_ObjectHideFlags: 0
@@ -10400,5 +10371,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511fea792884f9743a99d62329efff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
-  friendlies: []

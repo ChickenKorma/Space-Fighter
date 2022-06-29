@@ -6,6 +6,11 @@ public class Missile : Projectile
 {
     [SerializeField] private float damageRange;
 
+    private void OnEnable()
+    {
+        GameManager.Instance.AddMissile(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, damageRange);
@@ -17,6 +22,11 @@ public class Missile : Projectile
 
         DestroyProjectile();
     }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.RemoveMissile(gameObject);
+    }
 }
 
 public class GuidedMissile : Missile
@@ -26,8 +36,6 @@ public class GuidedMissile : Missile
 
     protected Transform target;
 
-    protected bool isGuided;
-
     protected override void Start()
     {
         base.Start();
@@ -36,7 +44,7 @@ public class GuidedMissile : Missile
 
         if (targetObject != null)
         {
-            target = PlayerSpacecraft.Instance.Target.transform;
+            target = targetObject.transform;
         }
     }
 

@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
     }
 
     // Moves the projectile forward by the speed stat
-    protected void Move()
+    private void Move()
     {
         transform.position += speed * transform.forward * Time.deltaTime;
     }

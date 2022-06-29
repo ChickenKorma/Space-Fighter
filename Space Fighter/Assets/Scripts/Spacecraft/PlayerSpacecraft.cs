@@ -2,23 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpacecraft : FriendlySpacecraft
+public class PlayerSpacecraft : Spacecraft
 {
     [HideInInspector] public static PlayerSpacecraft Instance;
 
     [Header("Handling Variables")]
     [SerializeField] private float aimSensitivity;
     [SerializeField] private bool pitchInverted;
-
-    public float Speed
-    {
-        get { return currentSpeed; }
-    }
-
-    public float Throttle
-    {
-        get { return throttle; }
-    }
 
     public GameObject Target
     {
@@ -27,22 +17,28 @@ public class PlayerSpacecraft : FriendlySpacecraft
             return target;
         }
     }
-
     public GameObject ProxyTarget
     {
         get { return proxyTarget; }
+    }
+
+    public float Speed
+    {
+        get { return currentSpeed; }
+    }
+    public float Throttle
+    {
+        get { return throttle; }
     }
 
     public Weapon CurrentWeapon
     {
         get { return availableWeapons[currentWeapon]; }
     }
-
     public LaserCannon LaserCannon
     {
         get { return laserCannon; }
     }
-
     public MissileLauncher MissileLauncher
     {
         get { return missileLauncher; }
@@ -61,16 +57,13 @@ public class PlayerSpacecraft : FriendlySpacecraft
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        UpdateTargets();
-        UpdateMuzzlePointing();
+        UpdateInputs();
 
-        UpdateInputs();     
-        Rotate();
-        Move();
+        base.Update();
     }
 
     // Gets inputs from player, updates the velocity and rotation step on spacecraft class and fires weapons
